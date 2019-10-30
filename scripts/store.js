@@ -4,7 +4,7 @@ let items = [];
 let hideCheckedItems = false;
 
 function findById(id) {
-  items.find((i) => i === id);
+  return items.find((i) => i === id);
 }
 
 function addItem(name) {
@@ -25,17 +25,15 @@ function findAndToggleChecked(id) {
 function findAndUpdateName(id, newName) {
   try {
     item.validateName(newName);
-    findById(id);
+    this.findById(id);
   } catch (error) {
     console.log(`cant update name, ${error.message}`);
   }
 }
 
-// function findAndDelete(id) {
-//   findById(id);
-//   let itemFilter = item.filter((i) => i === id);
-//   itemFilter.splice(0, 1);
-// }
+function findAndDelete(id) {
+  this.items = this.items.filter((i) => i.id !== id);
+}
 
 export default {
   items,
@@ -43,6 +41,6 @@ export default {
   findById,
   addItem,
   findAndToggleChecked,
-  findAndUpdateName
-  //   findAndDelete
+  findAndUpdateName,
+  findAndDelete
 };

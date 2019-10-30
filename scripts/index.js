@@ -11,7 +11,7 @@ const main = function() {
   // grab the id of the first store item (bananas)
   let id = store.items[0].id;
   // delete this item from the store
-  // store.findAndDelete(id);
+  store.findAndDelete(id);
   shoppingList.render();
 };
 
